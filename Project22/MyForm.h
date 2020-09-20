@@ -83,6 +83,7 @@ namespace Project22 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::Control;
 			this->label2->Location = System::Drawing::Point(23, 105);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(49, 17);
@@ -165,27 +166,41 @@ namespace Project22 {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		MyForm2^ frm2 = gcnew MyForm2();
-		frm2->Show();
+	
 		//frm2->listBox1->Text;
 		//this->Hide();
-
+		
+	
 		int series = System::Convert::ToDouble(num1->Text);
 		int number = System::Convert::ToDouble(num2->Text);
 		System::String^ a = "incorrect";
-		if (series > 6900 && series < 6905 && number > 99999 && number < 800001) {
-			a = "correct";
-			frm2->listBox1->Items->Add(a);
-			frm2->listBox1->BackColor = System::Drawing::Color::Green;
+		if (series > 6900 && series < 6905) {
+			if (number > 99999 && number < 800001) {
+				a = "correct";
+				MyForm2^ frm2 = gcnew MyForm2();
+				frm2->Show();
+				frm2->listBox1->Items->Add(a);
+				frm2->listBox1->BackColor = System::Drawing::Color::Green;
+				num3->BackColor = System::Drawing::Color::Green;
+				num2->BackColor = System::Drawing::Color::White;
+				num1->BackColor = System::Drawing::Color::White;
+			}
+			else {
+				num2->BackColor = System::Drawing::Color::Red;
+				num1->BackColor = System::Drawing::Color::White;
+				a = "incorrect";
+			}
+		
 		}
 		else {
+			num1->BackColor = System::Drawing::Color::Red;
+			num2->BackColor = System::Drawing::Color::White;
 			a = "incorrect";
-			frm2->listBox1->Items->Add(a);
-			frm2->listBox1->BackColor = System::Drawing::Color::Red;
 		}
 		
 		//frm2->listBox1->Items->Add(a);
-		//num3->Text = a;
+		num3->Text = a;
+		
 		//num2->Text = System::Convert::ToString(a);
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
