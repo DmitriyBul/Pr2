@@ -1,3 +1,4 @@
 C:\Users\128dm\source\repos\Project22\Project22\Debug\Project22.vcxprojAssemblyReference.cache
 C:\Users\128dm\source\repos\Project22\Project22\Debug\Project22.MyForm.resources
 C:\Users\128dm\source\repos\Project22\Project22\Debug\Project22.vcxproj.GenerateResource.cache
+C:\Users\128dm\source\repos\Project22\Project22\Debug\Project22.MyForm2.resources

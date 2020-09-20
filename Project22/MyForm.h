@@ -1,7 +1,7 @@
 #pragma once
 #include "Header.h"
 #include <string>
- 
+#include "MyForm2.h"
 namespace Project22 {
 
 	using namespace System;
@@ -10,6 +10,7 @@ namespace Project22 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -160,19 +161,31 @@ namespace Project22 {
 
 		}
 #pragma endregion
+
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		MyForm2^ frm2 = gcnew MyForm2();
+		frm2->Show();
+		//frm2->listBox1->Text;
+		//this->Hide();
+
 		int series = System::Convert::ToDouble(num1->Text);
 		int number = System::Convert::ToDouble(num2->Text);
 		System::String^ a = "incorrect";
-		if (series > 6900 && series < 6905 && number > 100000 && number < 800000) {
+		if (series > 6900 && series < 6905 && number > 99999 && number < 800001) {
 			a = "correct";
+			frm2->listBox1->Items->Add(a);
+			frm2->listBox1->BackColor = System::Drawing::Color::Green;
 		}
 		else {
 			a = "incorrect";
+			frm2->listBox1->Items->Add(a);
+			frm2->listBox1->BackColor = System::Drawing::Color::Red;
 		}
-		num3->Text = a;
+		
+		//frm2->listBox1->Items->Add(a);
+		//num3->Text = a;
 		//num2->Text = System::Convert::ToString(a);
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
